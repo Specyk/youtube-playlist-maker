@@ -1,8 +1,8 @@
-# YouTube-Playlist-Maker
+# YouTube-Playlist-Maker 0.21
 
 This userscript adds a button to quickly create playlist link from videos on current YouTube page.
 
-Currently it works only on feed/subscriptions and home page.
+It should works on most of youtube pages suh as subcripptions, search results, trending etc.
 
 NOTE:
 Button might disappear when you navigate using links on YouTube. Refresh the page to restore the button.
