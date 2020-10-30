@@ -1,4 +1,4 @@
-# YouTube-Playlist-Maker 0.21
+# YouTube-Playlist-Maker 0.22
 
 This userscript adds a button to quickly create playlist link from videos on current YouTube page.
 
