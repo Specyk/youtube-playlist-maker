@@ -6,6 +6,7 @@
 // @author       Emil Mordarski
 // @match        https://www.youtube.com/*
 // @grant        none
+//
 // ==/UserScript==
 
 (function () {
@@ -53,11 +54,11 @@
     }
   }
 
-  if (
-    document.readyState == "complete" ||
-    document.readyState == "loaded" ||
-    document.readyState == "interactive"
-  ) {
+  setTimeout(() => {
+    main();
+  }, 500);
+
+  function main() {
     const toPlaylistBtn = document.createElement("span");
     toPlaylistBtn.innerHTML = `<img style = 'width: 30px; height: 30px; cursor: pointer' src = 'https://pngimage.net/wp-content/uploads/2018/06/play-button-white-png-2.png'>`;
     toPlaylistBtn.addEventListener("click", (e) => {
