@@ -66,12 +66,5 @@
     });
 
     addExtraBtn(toPlaylistBtn, document);
-
-    document.querySelector("ytd-app").addEventListener("yt-navigate", () => {
-      // Issue: button doesn't append, rpobably assosiated with DOM reload
-      addExtraBtn(toPlaylistBtn, document);
-      console.log("@@@ App navigated");
-      console.log(document.querySelector("ytd-app").querySelector("#buttons"));
-    });
   }
 })();
