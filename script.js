@@ -58,13 +58,26 @@
     main();
   }, 500);
 
-  function main() {
+  const prepareBtn = () => {
     const toPlaylistBtn = document.createElement("span");
+    toPlaylistBtn.id = "youtube-playlist-maker";
     toPlaylistBtn.innerHTML = `<img style = 'width: 30px; height: 30px; cursor: pointer' src = 'https://pngimage.net/wp-content/uploads/2018/06/play-button-white-png-2.png'>`;
     toPlaylistBtn.addEventListener("click", (e) => {
       goToPlaylist();
     });
+    return toPlaylistBtn;
+  };
 
+  function main() {
+    const toPlaylistBtn = prepareBtn();
     addExtraBtn(toPlaylistBtn, document);
+    setInterval(() => {
+      const ypmBtn = document.querySelector("#youtube-playlist-maker");
+      console.log(`ytmBtn = ${ypmBtn}`);
+      if (!ypmBtn) {
+        const newToPlaylistBtn = prepareBtn();
+        addExtraBtn(newToPlaylistBtn, document);
+      }
+    }, 1500);
   }
 })();
