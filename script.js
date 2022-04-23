@@ -18,18 +18,12 @@
 		default: "#video-title",
 	}
 
-	const scanStrategies = new Map(
-		Object.entries(
-			pageSelectionStrategy
-		)
-	);
-
 	const baseUrl = "https://www.youtube.com/watch_videos?video_ids=";
 	const makeIdsList = (links) => links.map((link) => getVideoId(link)); // return youtube video ids[]
 	const createPlaylistLink = (ids) => baseUrl + ids.join(","); // return youtube playlist link
 
 	const scan = (DOM, locationSelector) =>
-		Array.from(DOM.querySelectorAll(scanStrategies.get(locationSelector))); // return array of HTML elements
+		Array.from(DOM.querySelectorAll(pageSelectionStrategy[locationSelector])); // return array of HTML elements
 	const getYtUrls = (htmlElements) => htmlElements.map((htmlEl) => htmlEl.href); // return youtube video urls[]
 
 	const addExtraBtn = (btn, DOM) =>
@@ -51,7 +45,7 @@
 
 	function goToPlaylist() {
 		console.log(`location.pathname = ${location.pathname}`)
-		if (scanStrategies.get(location.pathname)) {
+		if (pageSelectionStrategy[location.pathname]) {
 			makePlaylist(document, location.pathname);
 		} else {
 			makePlaylist(document, "default");
